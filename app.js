@@ -14,6 +14,11 @@ App({
     })
   },
   globalData: {
-    userInfo: null
-  }
+    userInfo: null,
+    token: null,
+    user:{
+    },
+    cost:{
+    }
+  },
 })

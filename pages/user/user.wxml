@@ -1,0 +1,84 @@
+<view class="page__bd" style="height: 100%;">
+  <view class="weui-tab">
+    <view id="panel1" role="tabpanel" aria-labelledby="tab1" class="weui-tab__panel">
+      <view class="weui-cell__hd"><span class="weui-label" style="margin-left: 30rpx;margin-top: 20rpx;">水表</span></view>
+      <view class="weui-cells">
+        <label for="js_input1" class="weui-cell weui-cell_active">
+          <view class="weui-cell__hd"><span class="weui-label">上次读数</span></view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" disabled="true" value="{{cost.cost_w_s_number}}" />
+          </view>
+        </label>
+        <label for="js_input2" class="weui-cell weui-cell_active">
+          <view class="weui-cell__hd"><span class="weui-label">本次读数</span></view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="number" placeholder="请输入本次水表读数" bindinput="get_cost_w_e_number" />
+          </view>
+        </label>
+      </view>
+      <view class="weui-cell__hd"><span class="weui-label" style="margin-left: 30rpx;margin-top: 50rpx;">电表</span></view>
+      <view class="weui-cells">
+        <label for="js_input1" class="weui-cell weui-cell_active">
+          <view class="weui-cell__hd"><span class="weui-label">上次读数</span></view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" disabled="true" value="{{cost.cost_e_s_number}}" />
+          </view>
+        </label>
+        <label for="js_input2" class="weui-cell weui-cell_active">
+          <view class="weui-cell__hd"><span class="weui-label">本次读数</span></view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="number" placeholder="请输入本次电表读数" bindinput="get_cost_e_e_number" />
+          </view>
+        </label>
+      </view>
+      <view class="weui-cell__hd"><span class="weui-label" style="margin-left: 30rpx;margin-top: 50rpx;">气表</span></view>
+      <view class="weui-cells">
+        <label for="js_input1" class="weui-cell weui-cell_active">
+          <view class="weui-cell__hd"><span class="weui-label">上次读数</span></view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" disabled="true" value="{{cost.cost_g_s_number}}" />
+          </view>
+        </label>
+        <label for="js_input2" class="weui-cell weui-cell_active">
+          <view class="weui-cell__hd"><span class="weui-label">本次读数</span></view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="number" placeholder="请输入本次气表读数" bindinput="get_cost_g_e_number" />
+          </view>
+        </label>
+      </view>
+      <view class="weui-form__opr-area" style="margin-top: 50rpx;">
+        <a role="button" disabled="" aria-disabled="true" class="weui-btn weui-btn_primary" href="javascript" id="showTooltips" wah-hotarea="click" bindtap="calculate">计算费用</a>
+      </view>
+    </view>
+    <view id="panel2" role="tabpanel" aria-labelledby="tab2" class="weui-tab__panel" style="display: none;"></view>
+    <view id="panel3" role="tabpanel" aria-labelledby="tab3" class="weui-tab__panel" style="display: none;"></view>
+    <view id="panel4" role="tabpanel" aria-labelledby="tab4" class="weui-tab__panel" style="display: none;"></view>
+    <view role="tablist" aria-label="" class="weui-tabbar" bindtap="changeTab">
+      <view id="tab1" role="tab" aria-labelledby="t1_title" aria-describedby="t1_tips" aria-selected="true" aria-contr0ols="panel1" class="weui-tabbar__item weui-bar__item_on" wah-hotarea="touchend">
+        <view id="t1_tips" aria-hidden="true" style="display: inline-block; position: relative;">
+          <image src="../images/cost.png" alt="" class="weui-tabbar__icon" />
+        </view>
+        <p id="t1_title" aria-hidden="true" class="weui-tabbar__label">缴费</p>
+      </view>
+      <view id="tab2" role="tab" aria-labelledby="t2_title" aria-selected="false" aria-controls="panel2" class="weui-tabbar__item" wah-hotarea="touchend">
+        <image src="../images/costList.png" alt="" class="weui-tabbar__icon" />
+        <p aria-hidden="true" id="t2_title" class="weui-tabbar__label">费用信息</p>
+      </view>
+      <view id="tab3" role="tab" aria-labelledby="t3_title" aria-selected="false" aria-controls="panel3" class="weui-tabbar__item" wah-hotarea="touchend">
+        <image src="../images/contract.png" alt="" class="weui-tabbar__icon" />
+        <p class="weui-tabbar__label" aria-hidden="true" id="t4_title">合同信息</p>
+      </view>
+      <view id="tab4" role="tab" aria-labelledby="t4_title" aria-selected="false" aria-controls="panel4" class="weui-tabbar__item" wah-hotarea="touchend">
+        <image src="../images/mine.png" alt="" class="weui-tabbar__icon" />
+        <p class="weui-tabbar__label" aria-hidden="true" id="t4_title">我</p>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="page__ft j_bottom">
+  <view class="weui-footer">
+    <view class="weui-footer__text">
+      cattle © 2023-2050 house
+    </view>
+  </view>
+</view>
