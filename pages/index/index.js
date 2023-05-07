@@ -64,7 +64,7 @@ Page({
       }).then((res) => {
         if(res.code===1){
           app.globalData.user = res.data;
-          wx.redirectTo({
+          wx.switchTab({
             url: '../pay/pay'
           })
         }else{
@@ -74,35 +74,6 @@ Page({
           })
         }
       })
-
-      // wx.request({
-      //   url : "https://4017p6352h.goho.co/cattle/house/user/login",
-      //   //url : "http://124.222.162.17/api/cattle/house/user/login",
-      //   method: "POST",
-      //   data: JSON.stringify({
-      //     user_no: user_no,
-      //     user_password: user_password,
-      //     user_phone: user_no
-      //   }),
-      //   header: {
-      //     "Content-Type": "application/json",
-      //     "token":app.globalData.token,
-      //     "userid":app.globalData.user.user_id
-      //   },
-      //   success: function (res) {
-      //     if(res.data.code===1){
-      //       app.globalData.user = res.data.data;
-      //       wx.redirectTo({
-      //         url: '../user/user'
-      //       })
-      //     }else{
-      //       wx.showToast({
-      //         title: res.data.message,
-      //         icon: 'none'
-      //       })
-      //     }
-      //   },
-      // })
     }
   },
 })

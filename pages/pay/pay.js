@@ -86,7 +86,7 @@ Page({
                     duration: 1000,
                     success: function () {
                       setTimeout(function () {
-                        wx.redirectTo({
+                        wx.switchTab({
                         url: '../pay/pay',
                       })
                     }, 1000);
