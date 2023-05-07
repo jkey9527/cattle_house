@@ -1,4 +1,5 @@
 <view class="container" style="height: 100%;">
+  <view class="top">合同信息</view>
     <view class="formItem">
       <view class="item">
         <view class="label">合同编号</view>

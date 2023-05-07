@@ -22,6 +22,12 @@
 }
 .label1{
   margin-right: 60rpx;
+  font-weight: bold;
+  font-size: large;
+}
+.total{
+  color: red;
+  font-size: large;
 }
 .tips{
   margin-bottom: 20rpx;
@@ -40,4 +46,15 @@
 }
 .itemView{
   text-align: center;
+}
+.top{
+  margin: 20rpx auto;
+  font-weight: bold;
+  font-size: large;
+}
+.but{
+  text-align: center;
+}
+.end{
+  margin:30rpx;
 }
