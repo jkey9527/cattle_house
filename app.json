@@ -2,8 +2,10 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/user/user",
-    "pages/cost/cost"
+    "pages/cost/cost",
+    "pages/pay/pay",
+    "pages/contract/contract",
+    "pages/mine/mine"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -12,5 +14,37 @@
     "navigationBarTextStyle": "black"
   },
   "style": "v2",
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#07C160",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/pay/pay",
+        "iconPath": "images/pay.png",
+        "selectedIconPath": "images/pay2.png",
+        "text": "缴费"
+      },
+      {
+        "pagePath": "pages/cost/cost",
+        "iconPath": "images/cost.png",
+        "selectedIconPath": "images/cost2.png",
+        "text": "费用信息"
+      },
+      {
+        "pagePath": "pages/contract/contract",
+        "iconPath": "images/contract.png",
+        "selectedIconPath": "images/contract2.png",
+        "text": "合同信息"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "iconPath": "images/mine.png",
+        "selectedIconPath": "images/mine2.png",
+        "text": "我的"
+      }
+    ]
+  }
 }

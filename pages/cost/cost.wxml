@@ -1,69 +1,101 @@
-<view id="panel1" role="tabpanel" aria-labelledby="tab1" class="weui-tab__panel">
-  <view class="weui-cell__hd"><span class="weui-label" style="margin-left: 30rpx;margin-top: 20rpx;">水费</span></view>
-  <view class="weui-cells">
-    <label for="js_input1" class="weui-cell weui-cell_active">
-      <view class="weui-cell__hd"><span class="weui-label">本次用量</span></view>
-      <view class="weui-cell__bd">
-        <input class="weui-input" disabled="true" value="{{cost.cost_w_number}}" />
+<view class="container" style="height: 100%;">
+  <view class="formItem">
+    <!-- 开始循环 -->
+    <block wx:for="{{list}}" wx:key="key" wx:for-item="value">
+      <view class="title">第 {{value.cost_times}} 次抄表</view>
+      <!-- 水 -->
+      <view class="title">水</view>
+      <view class="item">
+        <view class="itemView">
+          <view class="label">期初</view>
+          <view class="value">
+            <input class="weui-input" disabled="true" value="{{value.cost_w_s_number}}" />
+          </view>
+        </view>
+        <view class="itemView">
+          <view class="label">期末</view>
+          <view class="value">
+            <input class="weui-input" disabled="true" value="{{value.cost_w_e_number}}" />
+          </view>
+        </view>
+        <view class="itemView">
+          <view class="label">用量</view>
+          <view class="value">
+            <input class="weui-input" disabled="true" value="{{value.cost_w_number}}" />
+          </view>
+        </view>
+        <view class="itemView">
+          <view class="label">费用</view>
+          <view class="value">
+            <input class="weui-input" disabled="true" value="{{value.cost_w_money}}" />
+          </view>
+        </view>
       </view>
-      <view class="weui-cell__hd"><span class="weui-label">吨</span></view>
-    </label>
-    <label for="js_input2" class="weui-cell weui-cell_active">
-      <view class="weui-cell__hd"><span class="weui-label">本次费用</span></view>
-      <view class="weui-cell__bd">
-        <input class="js_current_input" disabled="true" value="{{cost.cost_w_money}}" />
+      <!-- 电 -->
+      <view class="title">电</view>
+      <view class="item">
+        <view class="itemView">
+          <view class="label">期初</view>
+          <view class="value">
+            <input class="weui-input" disabled="true" value="{{value.cost_e_s_number}}" />
+          </view>
+        </view>
+        <view class="itemView">
+          <view class="label">期末</view>
+          <view class="value">
+            <input class="weui-input" disabled="true" value="{{value.cost_e_e_number}}" />
+          </view>
+        </view>
+        <view class="itemView">
+          <view class="label">用量</view>
+          <view class="value">
+            <input class="weui-input" disabled="true" value="{{value.cost_e_number}}" />
+          </view>
+        </view>
+        <view class="itemView">
+          <view class="label">费用</view>
+          <view class="value">
+            <input class="weui-input" disabled="true" value="{{value.cost_e_money}}" />
+          </view>
+        </view>
       </view>
-      <view class="weui-cell__hd"><span class="weui-label">元</span></view>
-    </label>
-  </view>
-  <view class="weui-cell__hd"><span class="weui-label" style="margin-left: 30rpx;margin-top: 50rpx;">电费</span></view>
-  <view class="weui-cells">
-    <label for="js_input1" class="weui-cell weui-cell_active">
-      <view class="weui-cell__hd"><span class="weui-label">本次用量</span></view>
-      <view class="weui-cell__bd">
-        <input class="weui-input" disabled="true" value="{{cost.cost_e_number}}" />
+      <!-- 气 -->
+      <view class="title">气</view>
+      <view class="item">
+        <view class="itemView">
+          <view class="label">期初</view>
+          <view class="value">
+            <input class="weui-input" disabled="true" value="{{value.cost_g_s_number}}" />
+          </view>
+        </view>
+        <view class="itemView">
+          <view class="label">期末</view>
+          <view class="value">
+            <input class="weui-input" disabled="true" value="{{value.cost_g_e_number}}" />
+          </view>
+        </view>
+        <view class="itemView">
+          <view class="label">用量</view>
+          <view class="value">
+            <input class="weui-input" disabled="true" value="{{value.cost_g_number}}" />
+          </view>
+        </view>
+        <view class="itemView">
+          <view class="label">费用</view>
+          <view class="value">
+            <input class="weui-input" disabled="true" value="{{value.cost_g_money}}" />
+          </view>
+        </view>
       </view>
-      <view class="weui-cell__hd"><span class="weui-label">度</span></view>
-    </label>
-    <label for="js_input2" class="weui-cell weui-cell_active">
-      <view class="weui-cell__hd"><span class="weui-label">本次费用</span></view>
-      <view class="weui-cell__bd">
-        <input class="js_current_input" disabled="true" value="{{cost.cost_e_money}}" />
+      <!-- 合计 -->
+      <view class="title">合计</view>
+      <view class="item">
+        <view class="label1">费用</view>
+        <view class="value">
+          <input class="weui-input" disabled="true" value="{{value.cost_total_money}}" />
+        </view>
       </view>
-      <view class="weui-cell__hd"><span class="weui-label">元</span></view>
-    </label>
-  </view>
-  <view class="weui-cell__hd"><span class="weui-label" style="margin-left: 30rpx;margin-top: 50rpx;">气费</span></view>
-  <view class="weui-cells">
-    <label for="js_input1" class="weui-cell weui-cell_active">
-      <view class="weui-cell__hd"><span class="weui-label">本次用量</span></view>
-      <view class="weui-cell__bd">
-        <input class="weui-input" disabled="true" value="{{cost.cost_g_number}}" />
-      </view>
-      <view class="weui-cell__hd"><span class="weui-label">方</span></view>
-    </label>
-    <label for="js_input2" class="weui-cell weui-cell_active">
-      <view class="weui-cell__hd"><span class="weui-label">本次费用</span></view>
-      <view class="weui-cell__bd">
-        <input class="js_current_input" disabled="true" value="{{cost.cost_g_money}}" />
-      </view>
-      <view class="weui-cell__hd"><span class="weui-label">元</span></view>
-    </label>
-  </view>
-  <view class="weui-cell__hd"><span class="weui-label" style="margin-left: 30rpx;margin-top: 50rpx;"></span></view>
-  <view class="weui-cells">
-    <label for="js_input1" class="weui-cell weui-cell_active">
-      <view class="weui-cell__hd"><span class="weui-label">合计</span></view>
-      <view class="weui-cell__bd">
-        <input class="js_current_input" disabled="true" value="{{cost.cost_total_money}}" />
-      </view>
-      <view class="weui-cell__hd"><span class="weui-label">元</span></view>
-    </label>
-  </view>
-  <view class="weui-form__opr-area" style="margin-top: 50rpx;">
-    <view  style="color: red; text-align: center;">（请提交后，联系管理员缴费）</view>
-  </view>
-  <view class="weui-form__opr-area" style="margin-top: 50rpx;">
-    <a role="button" disabled="" aria-disabled="true" class="weui-btn weui-btn_primary" href="javascript" id="showTooltips" wah-hotarea="click" bindtap="saveCost">提交</a>
+    </block>
+    <!-- 结束循环 -->
   </view>
 </view>
