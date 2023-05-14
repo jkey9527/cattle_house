@@ -1,4 +1,9 @@
 <view class="container" style="height: 100%;">
+  <picker bindchange="bindPickerChange" range-key="con_house_no" value="{{index}}" range="{{contract_list}}">
+    <view class="picker">
+      当前选择：{{contract_list[index].con_house_no}}
+    </view>
+  </picker>
   <view class="top">合同信息</view>
     <view class="formItem">
       <view class="item">
@@ -28,7 +33,7 @@
       <view class="item">
         <view class="label">房屋类型</view>
         <view class="value">
-          <input class="weui-input" disabled="true" value="{{list.con_house_type===2?'套二':'套一'}}" />
+          <input class="weui-input" disabled="true" value="{{list.con_house_type==1?'套一':'套二'}}" />
         </view>
       </view>
       <view class="item">
@@ -94,7 +99,7 @@
       <view class="item">
         <view class="label">合同状态</view>
         <view class="value">
-          <input class="weui-input" disabled="true" value="{{list.con_state===1?'在租':'待租'}}" />
+          <input class="weui-input" disabled="true" value="{{list.con_state==1?'在租':'待租'}}" />
         </view>
       </view>
       <view class="item">

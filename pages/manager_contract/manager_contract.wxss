@@ -1,4 +1,4 @@
-/* pages/pay/pay.wxss */
+
 .formItem{
   width: 100%;
   margin-bottom: 40rpx;
@@ -50,7 +50,4 @@
   margin: 20rpx auto;
   font-weight: bold;
   font-size: large;
-}
-.login_out{
-  margin-top: 50rpx;
 }

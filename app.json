@@ -5,7 +5,9 @@
     "pages/cost/cost",
     "pages/pay/pay",
     "pages/contract/contract",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/manager/manager",
+    "pages/manager_contract/manager_contract"
   ],
   "window": {
     "backgroundTextStyle": "light",

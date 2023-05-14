@@ -1,29 +1,40 @@
 const app = getApp()
 import { request } from "../../utils/http"
+const util = require('../../utils/util.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    user:{}
+    list:{},
+    contract_list:[],
+    index:0,
   },
-
+  bindPickerChange: function(e) {
+    let that = this
+    this.setData({
+      index: e.detail.value
+    },()=>{
+      that.getContractList(that.data.contract_list[that.data.index].con_no);
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
     var that = this
     request({
-      url: '/cattle/house/user/getUser',
+      url: '/cattle/house/contract/getContractOptions',
       method: 'POST',
       data:{
-        user_id:app.globalData.user.user_id
       }
     }).then((res) => {
       if(res.code===1){
         that.setData({
-          user:res.data
+          contract_list:res.data
+        },()=>{
+          that.getContractList(res.data[0].con_no);
         })
       }else{
         wx.showToast({
@@ -32,13 +43,6 @@ Page({
         })
       }
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
   },
 
   /**
@@ -82,26 +86,29 @@ Page({
   onShareAppMessage() {
 
   },
-
-  //退出登录事件
-  loginOut(e) {
+  
+  getContractList(con_no){
+    var that = this
     request({
-      url: '/cattle/house/user/loginOut',
+      url: '/cattle/house/contract/getContractList4Page',
       method: 'POST',
-      data: {
-        user_id: app.globalData.user.user_id
+      data:{
+        con_no:con_no
       }
     }).then((res) => {
-      if (res.code === 1) {
-        wx.redirectTo({
-          url: '../index/index',
+      if(res.code===1){
+        let data = res.data.list[0] || []
+        data.con_start_date = util.formatTime(new Date(data.con_start_date))
+        data.con_end_date = util.formatTime(new Date(data.con_end_date))
+        that.setData({
+          list:data
         })
-      } else {
+      }else{
         wx.showToast({
           title: res.message,
-          icon: 'none'
+          icon:'none'
         })
       }
     })
-  },
+  }
 })

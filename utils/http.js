@@ -1,6 +1,6 @@
 // ----http----
 // api URL
-const apiUrl = "https://4017p6352h.goho.co";// 公共的请求地址
+const apiUrl = "https://www.cattlejkey.cn";// 公共的请求地址
 // 封装微信请求方法
 const request = (params) => {
   let url = params.url;

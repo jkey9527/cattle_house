@@ -1,5 +1,6 @@
 const app = getApp()
 import { request } from "../../utils/http"
+const util = require('../../utils/util.js')
 Page({
 
   /**
@@ -22,8 +23,11 @@ Page({
       }
     }).then((res) => {
       if(res.code===1){
+        let data = res.data.list[0] || []
+        data.con_start_date = util.formatTime(new Date(data.con_start_date))
+        data.con_end_date = util.formatTime(new Date(data.con_end_date))
         that.setData({
-          list:res.data.list
+          list:data
         })
       }else{
         wx.showToast({
