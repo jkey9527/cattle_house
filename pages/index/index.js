@@ -17,7 +17,6 @@ Page({
     var that = this
     wx.getSystemInfo({
       success: function (res) {
-        console.log(res.windowHeight)
         that.setData({
           clientHeight: res.windowHeight
         });
@@ -72,7 +71,7 @@ Page({
             })
           } else {
             wx.showActionSheet({
-              itemList: ['普通用户', '管理员'],
+              itemList: ['我的家', '合同管理','用户管理','费用管理','收支管理'],
               itemColor: '#000000',
               success(res) {
                 if (res.tapIndex === 0) {
@@ -82,6 +81,18 @@ Page({
                 } else if (res.tapIndex === 1) {
                   wx.redirectTo({
                     url: '../manager_contract/manager_contract',
+                  })
+                } else if (res.tapIndex === 2) {
+                  wx.redirectTo({
+                    url: '../manager_user/manager_user',
+                  })
+                } else if (res.tapIndex === 3) {
+                  wx.redirectTo({
+                    url: '../manager_cost/manager_cost',
+                  })
+                } else if (res.tapIndex === 4) {
+                  wx.redirectTo({
+                    url: '../manager_record/manager_record',
                   })
                 }
               }

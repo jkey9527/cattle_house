@@ -8,7 +8,7 @@ Page({
    */
   data: {
     list:{},
-    contract_list:[],
+    user_list:[],
     index:0,
   },
   bindPickerChange: function(e) {
@@ -16,7 +16,7 @@ Page({
     this.setData({
       index: e.detail.value
     },()=>{
-      that.getContractList(that.data.contract_list[that.data.index].con_no);
+      that.getUserList(that.data.user_list[that.data.index].user_id);
     })
   },
   /**
@@ -25,7 +25,7 @@ Page({
   onLoad(options) {
     var that = this
     request({
-      url: '/cattle/house/contract/getContractOptions',
+      url: '/cattle/house/user/getUserOptions',
       method: 'POST',
       data:{
       }
@@ -33,12 +33,12 @@ Page({
       if(res.code===1){
         let val = res.data
         val.forEach(v => {
-          v.house_info = v.con_house_no + '号房间'
+          v.userNoAndName = v.user_no + ' -> ' + v.user_name
         });
         that.setData({
-          contract_list:val
+          user_list: val
         },()=>{
-          that.getContractList(res.data[0].con_no);
+          that.getUserList(res.data[0].user_id);
         })
       }else{
         wx.showToast({
@@ -91,19 +91,17 @@ Page({
 
   },
   
-  getContractList(con_no){
+  getUserList(user_id){
     var that = this
     request({
-      url: '/cattle/house/contract/getContractList4Page',
+      url: '/cattle/house/user/getUser',
       method: 'POST',
       data:{
-        con_no:con_no
+        user_id:user_id
       }
     }).then((res) => {
       if(res.code===1){
-        let data = res.data.list[0] || []
-        data.con_start_date = util.formatTime(new Date(data.con_start_date))
-        data.con_end_date = util.formatTime(new Date(data.con_end_date))
+        let data = res.data;
         that.setData({
           list:data
         })

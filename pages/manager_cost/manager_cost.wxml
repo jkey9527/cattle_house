@@ -1,0 +1,108 @@
+<view class="container" style="height: 100%;">
+  <picker bindchange="bindPickerChange" range-key="house_info" value="{{index}}" range="{{contract_list}}">
+    <view class="picker">
+    <view class="option_title">当前选择：</view>
+    <view class="option_label">{{contract_list[index].house_info}} ></view>
+    </view>
+  </picker>
+  <view class="top">费用信息</view>
+  <view class="formItem">
+    <!-- 开始循环 -->
+    <block wx:for="{{list}}" wx:key="key" wx:for-item="value">
+      <view class="title but">第 {{value.cost_times}} 次抄表</view>
+      <!-- 水 -->
+      <view class="title">水</view>
+      <view class="item">
+        <view class="itemView">
+          <view class="label">期初</view>
+          <view class="value">
+            <input class="weui-input" disabled="true" value="{{value.cost_w_s_number}}" />
+          </view>
+        </view>
+        <view class="itemView">
+          <view class="label">期末</view>
+          <view class="value">
+            <input class="weui-input" disabled="true" value="{{value.cost_w_e_number}}" />
+          </view>
+        </view>
+        <view class="itemView">
+          <view class="label">用量</view>
+          <view class="value">
+            <input class="weui-input" disabled="true" value="{{value.cost_w_number}}" />
+          </view>
+        </view>
+        <view class="itemView">
+          <view class="label">费用</view>
+          <view class="value">
+            <input class="weui-input" disabled="true" value="{{value.cost_w_money}}" />
+          </view>
+        </view>
+      </view>
+      <!-- 电 -->
+      <view class="title">电</view>
+      <view class="item">
+        <view class="itemView">
+          <view class="label">期初</view>
+          <view class="value">
+            <input class="weui-input" disabled="true" value="{{value.cost_e_s_number}}" />
+          </view>
+        </view>
+        <view class="itemView">
+          <view class="label">期末</view>
+          <view class="value">
+            <input class="weui-input" disabled="true" value="{{value.cost_e_e_number}}" />
+          </view>
+        </view>
+        <view class="itemView">
+          <view class="label">用量</view>
+          <view class="value">
+            <input class="weui-input" disabled="true" value="{{value.cost_e_number}}" />
+          </view>
+        </view>
+        <view class="itemView">
+          <view class="label">费用</view>
+          <view class="value">
+            <input class="weui-input" disabled="true" value="{{value.cost_e_money}}" />
+          </view>
+        </view>
+      </view>
+      <!-- 气 -->
+      <view class="title">气</view>
+      <view class="item">
+        <view class="itemView">
+          <view class="label">期初</view>
+          <view class="value">
+            <input class="weui-input" disabled="true" value="{{value.cost_g_s_number}}" />
+          </view>
+        </view>
+        <view class="itemView">
+          <view class="label">期末</view>
+          <view class="value">
+            <input class="weui-input" disabled="true" value="{{value.cost_g_e_number}}" />
+          </view>
+        </view>
+        <view class="itemView">
+          <view class="label">用量</view>
+          <view class="value">
+            <input class="weui-input" disabled="true" value="{{value.cost_g_number}}" />
+          </view>
+        </view>
+        <view class="itemView">
+          <view class="label">费用</view>
+          <view class="value">
+            <input class="weui-input" disabled="true" value="{{value.cost_g_money}}" />
+          </view>
+        </view>
+      </view>
+      <!-- 合计 -->
+      <view class="item">
+        <view class="label1">合计费用</view>
+        <view class="value" class="total">
+          <input class="weui-input" disabled="true" value="{{value.cost_total_money+'（' + value.cost_date + '）'}}" />
+        </view>
+      </view>
+      <view class="end"></view>
+    </block>
+    <!-- 结束循环 -->
+  </view>
+</view>

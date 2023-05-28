@@ -1,8 +1,9 @@
 <view class="container" style="height: 100%;">
-  <picker bindchange="bindPickerChange" range-key="con_house_no" value="{{index}}" range="{{contract_list}}">
+  <picker bindchange="bindPickerChange" range-key="house_info" value="{{index}}" range="{{contract_list}}">
     <view class="picker">
-      当前选择：{{contract_list[index].con_house_no}}
-    </view>
+    <view class="option_title">当前选择：</view>
+    <view class="option_label">{{contract_list[index].house_info}} ></view>
+  </view>
   </picker>
   <view class="top">合同信息</view>
     <view class="formItem">

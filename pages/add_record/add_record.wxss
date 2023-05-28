@@ -1,4 +1,4 @@
-
+/* pages/pay/pay.wxss */
 .formItem{
   width: 100%;
   margin-bottom: 40rpx;
@@ -51,13 +51,9 @@
   font-weight: bold;
   font-size: large;
 }
-.picker{
-  display: flex;
-  align-items: center;
+.login_out{
+  margin-top: 50rpx;
 }
-.option_label{
-  background-color: rgb(4, 168, 75);
-  color: #fff;
-  padding: 8rpx 20rpx;
-  border-radius: 8rpx;
+.form{
+  width: 100%;
 }

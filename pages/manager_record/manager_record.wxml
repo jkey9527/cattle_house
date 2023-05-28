@@ -1,0 +1,26 @@
+<view class="container" style="height: 100%;">
+  <view class="top">收支信息</view>
+  <view class="op">
+    <view class="btn" bindtap="saveRecord">+</view>
+    <!-- <view class="btn btn2" bindtap="deleteRecord">删除</view> -->
+    <!-- <view class="btn" bindtap="updateRecord">修改</view> -->
+  </view>
+  <view class="formItem">
+    <!-- 开始循环 -->
+    <block wx:for="{{list}}" wx:key="key" wx:for-item="value">
+      <view class="items">
+        <view class="items_msg">
+          <span class="{{value.r_type==0?'items_type items_type2':'items_type items_type'}}">
+            {{value.r_type==0?'收入':'支出'}}
+          </span>
+          {{value.r_msg}}
+        </view>
+        <view class="items_b">
+          <view class="items_money">¥ {{value.r_type==0?'+':'-'}}{{value.r_money}}</view>
+          <view class="items_date">{{value.r_date}}</view>
+        </view>
+      </view>
+    </block>
+    <!-- 结束循环 -->
+  </view>
+</view>

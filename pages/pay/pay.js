@@ -74,7 +74,6 @@ Page({
       content: '是否确认提交',
       success: function (res) {
           if (res.confirm) {
-            console.log(that.data.cost)
             request({
               url: '/cattle/house/cost/saveCost',
               method: 'POST',

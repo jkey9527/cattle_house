@@ -1,4 +1,4 @@
-
+/* pages/pay/pay.wxss */
 .formItem{
   width: 100%;
   margin-bottom: 40rpx;
@@ -18,7 +18,16 @@
   display: flex;
 }
 .label{
+  text-align: center;
+}
+.label1{
   margin-right: 60rpx;
+  font-weight: bold;
+  font-size: 35rpx;
+}
+.total{
+  color: red;
+  font-size: 35rpx;
 }
 .tips{
   margin-bottom: 20rpx;
@@ -35,21 +44,19 @@
   font-weight: bold;
   width: 173px;
 }
-.btn{
-  display:flex;
-  margin: 0 auto;
-}
-.bt{
-  width: 300rpx;
-}
-.b{
-  width: 240rpx;
-  margin: 0 auto;
+.itemView{
+  text-align: center;
 }
 .top{
   margin: 20rpx auto;
   font-weight: bold;
   font-size: large;
+}
+.but{
+  text-align: center;
+}
+.end{
+  margin:30rpx;
 }
 .picker{
   display: flex;

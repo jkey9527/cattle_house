@@ -1,0 +1,36 @@
+<view class="container" style="height: 100%;">
+  <view class="top">收支信息</view>
+  <form catchsubmit="formSubmit" class="form">
+    <view class="formItem">
+      <view class="item">
+        <view class="label">收支类型</view>
+        <view class="value">
+          <picker bindchange="bindPickerChange" range-key="label" name="r_type" value="{{r_type}}" range="{{list}}">
+            <view class="option_label">{{list[r_type].label}}</view>
+          </picker>
+        </view>
+      </view>
+      <view class="item">
+        <view class="label">交易金额</view>
+        <view class="value">
+          <input class="weui-input" name="r_money" value="{{r_money}}" />
+        </view>
+      </view>
+      <view class="item">
+        <view class="label">交易日期</view>
+        <view class="value">
+          <picker mode="date" name="r_date" value="{{r_date}}" start="2015-09-01" end="2115-09-01" bindchange="bindDateChange">
+            <view class="picker">{{r_date}}</view>
+          </picker>
+        </view>
+      </view>
+      <view class="item">
+        <view class="label">交易说明</view>
+        <view class="value">
+          <input class="weui-input" name="r_msg" value="{{r_msg}}"/>
+        </view>
+      </view>
+      <button style="margin: 50rpx auto" type="primary" formType="submit">保存</button>
+    </view>
+  </form>
+</view>

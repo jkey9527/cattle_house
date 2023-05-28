@@ -16,7 +16,7 @@ Page({
     this.setData({
       index: e.detail.value
     },()=>{
-      that.getContractList(that.data.contract_list[that.data.index].con_no);
+      that.getCostList(that.data.contract_list[that.data.index].con_no);
     })
   },
   /**
@@ -31,14 +31,14 @@ Page({
       }
     }).then((res) => {
       if(res.code===1){
-        let val = res.data
+        let val = res.data;
         val.forEach(v => {
           v.house_info = v.con_house_no + '号房间'
         });
         that.setData({
           contract_list:val
         },()=>{
-          that.getContractList(res.data[0].con_no);
+          that.getCostList(res.data[0].con_no);
         })
       }else{
         wx.showToast({
@@ -91,19 +91,20 @@ Page({
 
   },
   
-  getContractList(con_no){
+  getCostList(con_no){
     var that = this
     request({
-      url: '/cattle/house/contract/getContractList4Page',
+      url: '/cattle/house/cost/getCostListByContractNo4Page',
       method: 'POST',
       data:{
-        con_no:con_no
+        cost_contract_no:con_no
       }
     }).then((res) => {
       if(res.code===1){
-        let data = res.data.list[0] || []
-        data.con_start_date = util.formatTime(new Date(data.con_start_date))
-        data.con_end_date = util.formatTime(new Date(data.con_end_date))
+        let data = res.data.list
+        data.forEach(v => {
+          v.cost_date = util.formatTime(new Date(v.cost_date))
+        });
         that.setData({
           list:data
         })
