@@ -1,5 +1,6 @@
 <view class="container" style="height: 100%;">
   <view class="top">收支信息</view>
+  <view class="top">余额：{{balance}}</view>
   <view class="op">
     <view class="btn" bindtap="saveRecord">+</view>
     <!-- <view class="btn btn2" bindtap="deleteRecord">删除</view> -->

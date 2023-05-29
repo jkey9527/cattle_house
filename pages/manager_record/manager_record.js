@@ -7,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list:{}
+    list:{},
+    balance:''
   },
   /**
    * 生命周期函数--监听页面加载
@@ -19,7 +20,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    this.getRecordList()
+    this.getRecordList(),
+    this.getRecordBalance()
   },
 
   /**
@@ -97,5 +99,28 @@ Page({
     wx.navigateTo({
       url: '../add_record/add_record',
     })
-  }
+  },
+  getRecordBalance(){
+    var that = this
+    request({
+      url: '/cattle/house/record/getRecordBalance',
+      method: 'POST',
+      data:{
+      }
+    }).then((res) => {
+      if(res.code===1){
+        let data = res.data
+        that.setData({
+          balance:data
+        },()=>{
+          console.log(this.data)
+        })
+      }else{
+        wx.showToast({
+          title: res.message,
+          icon:'none'
+        })
+      }
+    })
+  },
 })
