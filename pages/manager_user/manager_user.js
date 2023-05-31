@@ -7,9 +7,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list:{},
+    list:{
+      user_type:1,
+      user_state:1
+    },
     user_list:[],
     index:0,
+    type_options: [
+      {value: '1', name: '租客', checked: 'true'},
+      {value: '2', name: '房东'}
+    ],
+    state_options: [
+      {value: '0', name: '停用'},
+      {value: '1', name: '启用', checked: 'true'}
+    ]
   },
   bindPickerChange: function(e) {
     let that = this
@@ -17,6 +28,20 @@ Page({
       index: e.detail.value
     },()=>{
       that.getUserList(that.data.user_list[that.data.index].user_id);
+    })
+  },
+  bindPickerChange1: function (e) {
+    this.setData({
+      list:{
+        user_type: e.detail.value,
+      }
+    })
+  },
+  bindPickerChange2: function (e) {
+    this.setData({
+      list:{
+        user_state: e.detail.value,
+      }
     })
   },
   /**
@@ -90,7 +115,27 @@ Page({
   onShareAppMessage() {
 
   },
-  
+  formSubmit(e) {
+    let params = e.detail.value
+    params.user_id = this.data.user_list[this.data.index].user_id
+    request({
+      url: '/cattle/house/user/updateUser',
+      method: 'POST',
+      data: params
+    }).then((res) => {
+      if (res.code === 1) {
+        wx.showToast({
+          title: res.message,
+          icon: 'none'
+        })
+      } else {
+        wx.showToast({
+          title: res.message,
+          icon: 'none'
+        })
+      }
+    })
+  },
   getUserList(user_id){
     var that = this
     request({

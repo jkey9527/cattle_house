@@ -2,7 +2,7 @@
   <picker bindchange="bindPickerChange" range-key="house_info" value="{{index}}" range="{{contract_list}}">
     <view class="picker">
     <view class="option_title">当前选择：</view>
-    <view class="option_label">{{contract_list[index].house_info}} ></view>
+    <view class="option_label">{{contract_list[index].house_info}}</view>
     </view>
   </picker>
   <view class="top">费用信息</view>
