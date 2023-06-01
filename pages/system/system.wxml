@@ -1,0 +1,16 @@
+<view class="container" style="height: 100%;">
+    <view class="top">参数设置</view>
+    <form catchsubmit="formSubmit" class="form">
+        <block wx:for="{{list}}" wx:key="key" wx:for-item="item">
+            <view class="formItem">
+                <view class="item">
+                    <view class="label">{{item.sys_label}}</view>
+                    <view class="value">
+                        <switch checked="{{item.sys_value}}" name="{{item.sys_code}}" />
+                    </view>
+                </view>
+            </view>
+        </block>
+        <button style="margin: 50rpx auto" type="primary" formType="submit">保存</button>
+    </form>
+</view>
