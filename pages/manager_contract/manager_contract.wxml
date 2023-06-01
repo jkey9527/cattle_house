@@ -97,7 +97,7 @@
       <view class="item">
         <view class="label">电单价</view>
         <view class="value">
-          <input class="weui-input" type="number" name="con_e_price" value="{{list.con_e_price}}" />元
+          <input class="weui-input" name="con_e_price" value="{{list.con_e_price}}" />元
         </view>
       </view>
       <view class="item">

@@ -30,7 +30,7 @@ Page({
       })
     }).then((res) => {
       if (res.code === 1) {
-        app.globalData.token = res.data;
+        wx.setStorageSync('token', res.data)
       }
     })
   },
