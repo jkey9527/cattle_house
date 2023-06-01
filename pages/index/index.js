@@ -71,7 +71,7 @@ Page({
             })
           } else {
             wx.showActionSheet({
-              itemList: ['我的家', '合同管理','用户管理','费用管理','收支管理'],
+              itemList: ['我的家', '管理员'],
               itemColor: '#000000',
               success(res) {
                 if (res.tapIndex === 0) {
@@ -79,20 +79,8 @@ Page({
                     url: '../pay/pay'
                   })
                 } else if (res.tapIndex === 1) {
-                  wx.redirectTo({
-                    url: '../manager_contract/manager_contract',
-                  })
-                } else if (res.tapIndex === 2) {
-                  wx.redirectTo({
-                    url: '../manager_user/manager_user',
-                  })
-                } else if (res.tapIndex === 3) {
-                  wx.redirectTo({
-                    url: '../manager_cost/manager_cost',
-                  })
-                } else if (res.tapIndex === 4) {
-                  wx.redirectTo({
-                    url: '../manager_record/manager_record',
+                  wx.navigateTo({
+                    url: '../manager/manager',
                   })
                 }
               }

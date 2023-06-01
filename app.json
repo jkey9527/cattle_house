@@ -1,56 +1,59 @@
 {
-  "pages": [
-    "pages/index/index",
-    "pages/logs/logs",
-    "pages/cost/cost",
-    "pages/pay/pay",
-    "pages/contract/contract",
-    "pages/mine/mine",
-    "pages/manager/manager",
-    "pages/manager_contract/manager_contract",
-    "pages/manager_user/manager_user",
-    "pages/manager_cost/manager_cost",
-    "pages/manager_record/manager_record",
-    "pages/add_record/add_record"
-  ],
-  "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "LAN房东",
-    "navigationBarTextStyle": "black"
-  },
-  "style": "v2",
-  "sitemapLocation": "sitemap.json",
-  "tabBar": {
-    "color": "#666666",
-    "selectedColor": "#07C160",
-    "borderStyle": "black",
-    "backgroundColor": "#ffffff",
-    "list": [
-      {
-        "pagePath": "pages/pay/pay",
-        "iconPath": "images/pay.png",
-        "selectedIconPath": "images/pay2.png",
-        "text": "缴费"
-      },
-      {
-        "pagePath": "pages/cost/cost",
-        "iconPath": "images/cost.png",
-        "selectedIconPath": "images/cost2.png",
-        "text": "费用信息"
-      },
-      {
-        "pagePath": "pages/contract/contract",
-        "iconPath": "images/contract.png",
-        "selectedIconPath": "images/contract2.png",
-        "text": "合同信息"
-      },
-      {
-        "pagePath": "pages/mine/mine",
-        "iconPath": "images/mine.png",
-        "selectedIconPath": "images/mine2.png",
-        "text": "我的"
-      }
-    ]
-  }
+    "pages": [
+        "pages/index/index",
+        "pages/logs/logs",
+        "pages/cost/cost",
+        "pages/pay/pay",
+        "pages/contract/contract",
+        "pages/mine/mine",
+        "pages/manager/manager",
+        "pages/manager_contract/manager_contract",
+        "pages/manager_user/manager_user",
+        "pages/manager_cost/manager_cost",
+        "pages/manager_record/manager_record",
+        "pages/add_record/add_record",
+        "pages/add_user/add_user",
+        "pages/add_contract/add_contract",
+        "pages/system/system"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "LAN房东",
+        "navigationBarTextStyle": "black"
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json",
+    "tabBar": {
+        "color": "#666666",
+        "selectedColor": "#07C160",
+        "borderStyle": "black",
+        "backgroundColor": "#ffffff",
+        "list": [
+            {
+                "pagePath": "pages/pay/pay",
+                "iconPath": "images/pay.png",
+                "selectedIconPath": "images/pay2.png",
+                "text": "缴费"
+            },
+            {
+                "pagePath": "pages/cost/cost",
+                "iconPath": "images/cost.png",
+                "selectedIconPath": "images/cost2.png",
+                "text": "费用信息"
+            },
+            {
+                "pagePath": "pages/contract/contract",
+                "iconPath": "images/contract.png",
+                "selectedIconPath": "images/contract2.png",
+                "text": "合同信息"
+            },
+            {
+                "pagePath": "pages/mine/mine",
+                "iconPath": "images/mine.png",
+                "selectedIconPath": "images/mine2.png",
+                "text": "我的"
+            }
+        ]
+    }
 }

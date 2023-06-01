@@ -13,7 +13,7 @@
       <view class="item">
         <view class="label">交易金额</view>
         <view class="value">
-          <input class="weui-input" name="r_money" value="{{r_money}}" />
+          <input class="weui-input" type="number" name="r_money" value="{{r_money}}" />
         </view>
       </view>
       <view class="item">

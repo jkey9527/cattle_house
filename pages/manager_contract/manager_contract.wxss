@@ -61,3 +61,30 @@
   padding: 8rpx 20rpx;
   border-radius: 8rpx;
 }
+.form{
+  width: 100%;
+}
+.op{
+  position: fixed;
+  right: 30rpx;
+  bottom: 200rpx;
+}
+.op .btn{
+  color: #fff;
+  background-color: #07c160;
+  border-radius: 50%;
+  width: 90rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60rpx;
+}
+.op .btn2{
+  background-color: #ccc;
+}
+.label{
+  width: 150rpx;
+  text-align: right;
+}

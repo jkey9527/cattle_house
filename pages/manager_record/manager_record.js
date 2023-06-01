@@ -84,8 +84,6 @@ Page({
         });
         that.setData({
           list:data
-        },()=>{
-          console.log(this.data.list)
         })
       }else{
         wx.showToast({

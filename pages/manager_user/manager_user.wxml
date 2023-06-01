@@ -2,7 +2,7 @@
   <picker bindchange="bindPickerChange" range-key="userNoAndName" value="{{index}}" range="{{user_list}}">
     <view class="picker">
       <view class="option_title">当前选择：</view>
-      <view class="option_label">{{user_list[index].user_no + user_list[index].user_name}}</view>
+      <view class="option_label">{{user_list[index].user_name+'('+user_list[index].user_no+')'}}</view>
     </view>
   </picker>
   <view class="top">用户信息</view>
@@ -35,11 +35,11 @@
       <view class="item">
         <view class="label">用户类型</view>
         <view class="value">
-          <radio-group bindchange="radioChange">
-          <label class="radio" wx:for="{{type_options}}" x:key="{{item.value}}" >
-            <radio value="{{item.value}}"  checked="{{item.checked}}"/>{{item.name}}
-          </label>
-        </radio-group>
+          <radio-group name="user_type">
+            <label class="radio" wx:for="{{type_options}}" wx:key="key" wx:for-item="item">
+              <radio value="{{item.value}}" checked="{{item.checked}}" />{{item.name}}
+            </label>
+          </radio-group>
         </view>
       </view>
       <view class="item">
@@ -56,9 +56,9 @@
       </view>
       <view class="item">
         <view class="label">用户状态</view>
-        <radio-group bindchange="radioChange">
-          <label class="radio" wx:for="{{state_options}}" x:key="{{item.value}}" >
-            <radio value="{{item.value}}"  checked="{{item.checked}}"/>{{item.name}}
+        <radio-group name="user_state">
+          <label class="radio" wx:for="{{state_options}}" wx:key="key" wx:for-item="item">
+            <radio value="{{item.value}}" checked="{{item.checked}}" />{{item.name}}
           </label>
         </radio-group>
       </view>
@@ -75,6 +75,10 @@
         </view>
       </view>
       <button style="margin: 50rpx auto" type="primary" formType="submit">保存</button>
+      <button style="margin: 50rpx auto" bindtap="delete">删除</button>
+    </view>
+    <view class="op">
+      <view class="btn" bindtap="add">+</view>
     </view>
   </form>
 </view>

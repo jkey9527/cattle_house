@@ -69,10 +69,6 @@
   border-radius: 8rpx;
 }
 .op{
-  /* width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  margin: 20rpx 0 60rpx; */
   position: fixed;
   right: 30rpx;
   bottom: 200rpx;
@@ -88,11 +84,6 @@
   justify-content: center;
   align-items: center;
   font-size: 60rpx;
-  /* width: 32%;
-  padding: 16rpx 0;
-  border-radius: 8rpx;
-  text-align: center;
-  margin-left: 20rpx; */
 }
 .op .btn2{
   background-color: #ccc;
@@ -132,4 +123,8 @@
 }
 .items_date{
   font-size: 24rpx;
+}
+.label{
+  width: 150rpx;
+  text-align: right;
 }
