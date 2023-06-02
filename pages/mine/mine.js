@@ -22,6 +22,7 @@ Page({
    */
   onShow() {
     this.getUser();
+    this.getSystem();
   },
 
   //退出登录事件
