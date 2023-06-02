@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    user:{}
+    user:{},
+    show_user:false,
   },
 
   /**
@@ -57,6 +58,31 @@ Page({
       if(res.code===1){
         that.setData({
           user:res.data
+        })
+      }else{
+        wx.showToast({
+          title: res.message,
+          icon:'none'
+        })
+      }
+    })
+  },
+  getSystem(){
+    request({
+      url: '/cattle/house/system/initSystem',
+      method: 'POST',
+      data:{}
+    }).then((res) => {
+      if(res.code===1){
+        let val = res.data
+        let show_user = false;
+        val.forEach(v => {
+          if(v.sys_code == 'show_user'){
+            show_user = v.sys_value == 'true'?true:false
+          }
+        });
+        this.setData({
+          show_user:show_user
         })
       }else{
         wx.showToast({
