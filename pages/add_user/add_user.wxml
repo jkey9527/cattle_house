@@ -5,67 +5,69 @@
       <view class="item">
         <view class="label">编号</view>
         <view class="value">
-          <input class="weui-input" name="user_no" value="{{list.user_no}}" />
+          <input class="weui-input" name="user_no" value="{{list.user_no}}" placeholder="编号" />
         </view>
       </view>
       <view class="item">
         <view class="label">姓名</view>
         <view class="value">
-          <input class="weui-input" name="user_name" value="{{list.user_name}}" />
+          <input class="weui-input" name="user_name" value="{{list.user_name}}" placeholder="姓名" />
         </view>
       </view>
       <view class="item">
         <view class="label">手机号</view>
         <view class="value">
-          <input class="weui-input" type="number" name="user_phone" value="{{list.user_phone}}" />
+          <input class="weui-input" type="number" name="user_phone" value="{{list.user_phone}}" placeholder="手机号" />
         </view>
       </view>
       <view class="item">
         <view class="label">身份证号</view>
         <view class="value">
-          <input class="weui-input" name="user_id_card" value="{{list.user_id_card}}" />
+          <input class="weui-input" type="idcard" name="user_id_card" value="{{list.user_id_card}}" placeholder="身份证号" />
         </view>
       </view>
       <view class="item">
         <view class="label">用户类型</view>
         <view class="value">
           <radio-group name="user_type">
-          <label class="radio" wx:for="{{type_options}}" wx:key="key" wx:for-item="item">
-            <radio value="{{item.value}}"  checked="{{item.checked}}"/>{{item.name}}
-          </label>
-        </radio-group>
+            <label class="radio" wx:for="{{type_options}}" wx:key="key" wx:for-item="item">
+              <radio value="{{item.value}}" checked="{{item.checked}}" />{{item.name}}
+            </label>
+          </radio-group>
         </view>
       </view>
       <view class="item">
         <view class="label">合同编号</view>
-        <view class="value">
-          <input class="weui-input" name="user_contract_no" value="{{list.user_contract_no}}" />
-        </view>
+        <picker bindchange="bindPickerChange" name="user_contract_no" range-key="house_info" value="{{contract_list[index].con_no}}" range="{{contract_list}}">
+          <view class="picker">
+            <view class="option_label">{{contract_list[index].house_info}}</view>
+          </view>
+        </picker>
       </view>
       <view class="item">
         <view class="label">车牌号</view>
         <view class="value">
-          <input class="weui-input" name="user_car_no" value="{{list.user_car_no}}" />
+          <input class="weui-input" name="user_car_no" value="{{list.user_car_no}}" placeholder="车牌号" />
         </view>
       </view>
       <view class="item">
         <view class="label">用户状态</view>
         <radio-group name="user_state">
           <label class="radio" wx:for="{{state_options}}" wx:key="key" wx:for-item="item">
-            <radio value="{{item.value}}"  checked="{{item.checked}}"/>{{item.name}}
+            <radio value="{{item.value}}" checked="{{item.checked}}" />{{item.name}}
           </label>
         </radio-group>
       </view>
       <view class="item">
         <view class="label">备注</view>
         <view class="value">
-          <input class="weui-input" name="user_notes" value="{{list.user_notes}}" />
+          <input class="weui-input" name="user_notes" value="{{list.user_notes}}" placeholder="备注" />
         </view>
       </view>
       <view class="item">
         <view class="label">密码门编号</view>
         <view class="value">
-          <input class="weui-input" type="number" name="user_key_no" value="{{list.user_key_no}}" />
+          <input class="weui-input" type="number" name="user_key_no" value="{{list.user_key_no}}" placeholder="密码门编号" />
         </view>
       </view>
       <button style="margin: 50rpx auto" type="primary" formType="submit">保存</button>

@@ -7,6 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    index:0,
+    contract_list:{},
     type_options: [
       {value: '1', name: '租客',checked:true},
       {value: '2', name: '房东'}
@@ -15,19 +17,6 @@ Page({
       {value: '0', name: '停用'},
       {value: '1', name: '启用',checked:true}
     ]
-  },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-    
   },
 
   /**
@@ -53,5 +42,42 @@ Page({
         })
       }
     })
-  }
+  },
+
+  onShow(){
+    this.getContractOption();
+  },
+
+  bindPickerChange: function(e) {
+    this.setData({
+      index: e.detail.value
+    })
+  },
+
+  /**
+   * 查询合同列表
+   */
+  getContractOption(){
+    request({
+      url: '/cattle/house/contract/getContractOptions',
+      method: 'POST',
+      data:{
+      }
+    }).then((res) => {
+      if(res.code===1){
+        let val = res.data
+        val.forEach(v => {
+          v.house_info = v.con_house_no + '号房间'
+        });
+        this.setData({
+          contract_list:val
+        })
+      }else{
+        wx.showToast({
+          title: res.message,
+          icon:'none'
+        })
+      }
+    })
+  },
 })

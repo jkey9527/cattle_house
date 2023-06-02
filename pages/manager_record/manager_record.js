@@ -2,13 +2,17 @@ const app = getApp()
 import { request } from "../../utils/http"
 const util = require('../../utils/util.js')
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
     list:{},
-    balance:''
+    balance:'',
+    pageNum:1,
+    pageSize:10,
+    hasNextPage:false,
+    nextPage:2,
+    prePage:1
   },
   /**
    * 生命周期函数--监听页面加载
@@ -20,44 +24,34 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    this.getRecordList(),
+    this.getRecordList(1)
     this.getRecordBalance()
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom() {
-
+    if(this.data.hasNextPage == false){
+      wx.showToast({
+        title: '没有更多啦！',
+        icon:'none'
+      })
+    }
+    this.getRecordList(this.data.nextPage)
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  onPullDownRefresh(){
+    if(this.data.prePage == 1){
+      wx.showToast({
+        title: '没有更多啦！',
+        icon:'none'
+      })
+    }
+    this.getRecordList(this.data.prePage)
   },
+
   getTimes(date){
     let now = new Date(date)
     let m = now.getMonth() + 1
@@ -69,20 +63,24 @@ Page({
   /**
    * 查询明细信息
    */
-  getRecordList(){
-    var that = this
+  getRecordList(pageNum){
+    let param = {
+      pageBean:{
+        pageNum:pageNum,
+        pageSize:this.data.pageSize
+      }
+    }
     request({
       url: '/cattle/house/record/getRecordList4Page',
       method: 'POST',
-      data:{
-      }
+      data: param
     }).then((res) => {
       if(res.code===1){
         let data = res.data.list
         data.forEach(val => {
           val.r_date = this.getTimes(val.r_date)
         });
-        that.setData({
+        this.setData({
           list:data
         })
       }else{
@@ -110,8 +108,6 @@ Page({
         let data = res.data
         that.setData({
           balance:data
-        },()=>{
-          console.log(this.data)
         })
       }else{
         wx.showToast({

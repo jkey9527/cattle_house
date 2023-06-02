@@ -1,8 +1,9 @@
-<view class="container" style="height: 100%;">
-  <view class="top">管理菜单</view>
-  <button style="margin: 50rpx auto" type="primary" bindtap="toContract">合同管理</button>
-  <button style="margin: 50rpx auto" type="primary" bindtap="toUser">用户管理</button>
-  <button style="margin: 50rpx auto" type="primary" bindtap="toCost">费用管理</button>
-  <button style="margin: 50rpx auto" type="primary" bindtap="toRecord">收支管理</button>
-  <button style="margin: 50rpx auto" type="primary" bindtap="toSystem">参数设置</button>
+<view class="container">
+  <view class="main">
+    <view type="primary" style="background-color: rgb(137, 228, 95);" bindtap="toContract">合同管理<label>></label></view>
+    <view type="primary" style="background-color: rgb(95, 228, 221);" bindtap="toCost">费用管理<label>></label></view>
+    <view type="primary" style="background-color: rgb(226, 228, 95);" bindtap="toUser">用户管理<label>></label></view>
+    <view type="primary" style="background-color: rgb(95, 131, 228);" bindtap="toRecord">收支管理<label>></label></view>
+    <view type="primary" style="background-color: rgb(228, 95, 217);" bindtap="toSystem">参数设置<label>></label></view>
+  </view>
 </view>

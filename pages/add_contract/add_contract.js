@@ -17,6 +17,11 @@ Page({
       {value: '0', name: '停租'}
     ],
   },
+
+  /**
+   * 开始日期绑定事件
+   * @param {*} e 
+   */
   bindStartDateChange: function (e) {
     let val = this.data.list;
     val.con_start_date = e.detail.value;
@@ -24,6 +29,11 @@ Page({
       list:val
     })
   },
+
+    /**
+   * 结束日期绑定事件
+   * @param {*} e 
+   */
   bindEndDateChange: function (e) {
     let val = this.data.list;
     val.con_end_date = e.detail.value;
@@ -31,22 +41,24 @@ Page({
       list:val
     })
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    let val = this.data.list;
-    val.con_start_date = this.getNow();
-    val.con_end_date = this.getNextNow();
-    this.setData({
-      list:val
-    })
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow() {
+    let val = this.data.list;
+    val.con_start_date = this.getNow();
+    val.con_end_date = this.getNextNow();
+    this.setData({
+      list:val
+    })
   },
 
   /**

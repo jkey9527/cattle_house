@@ -58,7 +58,7 @@
   .option_label{
     background-color: rgb(4, 168, 75);
     color: #fff;
-    padding: 8rpx 20rpx;
+    padding: 1rpx 20rpx;
     border-radius: 8rpx;
   }
   .form{

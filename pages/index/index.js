@@ -65,6 +65,7 @@ Page({
       }).then((res) => {
         if (res.code === 1) {
           app.globalData.user = res.data;
+          wx.setStorageSync('userid', res.data.user_id)
           if (res.data.user_type === 1) {
             wx.switchTab({
               url: '../pay/pay'
@@ -79,7 +80,7 @@ Page({
                     url: '../pay/pay'
                   })
                 } else if (res.tapIndex === 1) {
-                  wx.navigateTo({
+                  wx.redirectTo({
                     url: '../manager/manager',
                   })
                 }

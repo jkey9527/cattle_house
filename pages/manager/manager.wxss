@@ -1,90 +1,31 @@
-
-.formItem{
-  width: 100%;
-  margin-bottom: 40rpx;
-}
-.title{
-  font-weight: bold;
-  font-size: 32rpx;
-  margin-bottom: 10rpx;
-}
-.item{
-  width: 100%;
+.container{
   display: flex;
-  border-bottom: 1rpx solid #efefef;
-  padding: 20rpx 0;
-}
-.value{
-  display: flex;
-}
-.label{
-  margin-right: 60rpx;
-}
-.tips{
-  margin-bottom: 20rpx;
-  color: #ff0000;
-  font-size: 24rpx;
-}
-.weui-form__opr-area{
-  width: 100%;
-  text-align: center;
-  padding: 0;
-}
-.total{
-  color: red;
-  font-weight: bold;
-  width: 173px;
-}
-.btn{
-  display:flex;
-  margin: 0 auto;
-}
-.bt{
-  width: 300rpx;
-}
-.b{
-  width: 240rpx;
-  margin: 0 auto;
+  flex-direction: column;
+  height: 100vh;
 }
 .top{
-  margin: 20rpx auto;
-  font-weight: bold;
-  font-size: large;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 10px;
 }
-.picker{
+.main{
+  flex-grow: 1;
   display: flex;
-  align-items: center;
-}
-.option_label{
-  background-color: rgb(4, 168, 75);
-  color: #fff;
-  padding: 8rpx 20rpx;
-  border-radius: 8rpx;
-}
-.form{
+  flex-direction: column;
   width: 100%;
 }
-.op{
-  position: fixed;
-  right: 30rpx;
-  bottom: 200rpx;
-}
-.op .btn{
-  color: #fff;
-  background-color: #07c160;
-  border-radius: 50%;
-  width: 90rpx;
-  height: 90rpx;
-  line-height: 90rpx;
+.main view{
+  flex-grow: 1;
+  display: block;
   display: flex;
-  justify-content: center;
   align-items: center;
-  font-size: 60rpx;
-}
-.op .btn2{
   background-color: #ccc;
+  margin-bottom: 10px;
+  padding: 10px;
+  color: #fff;
+  justify-content: space-between;
 }
-.label{
-  width: 150rpx;
-  text-align: right;
+.main view label{
+  display: inline-block;
+  font-size: 25px;
 }

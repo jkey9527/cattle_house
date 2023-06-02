@@ -17,7 +17,7 @@
         <label for="js_input2" class="weui-cell weui-cell_active">
           <view class="weui-cell__hd"><span class="weui-label">密码</span></view>
           <view class="weui-cell__bd">
-            <input id="password" type="password" class="weui-input" placeholder="请输入密码" bindinput="get_user_password" />
+            <input id="password" type="text" password class="weui-input" placeholder="请输入密码" bindinput="get_user_password" />
           </view>
         </label>
       </view>

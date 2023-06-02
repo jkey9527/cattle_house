@@ -20,6 +20,10 @@ Page({
     r_money: '',
     r_msg: '',
   },
+
+  /**
+   * 表单重置
+   */
   formReset(){
     this.setData({
       r_type: 0,
@@ -29,6 +33,11 @@ Page({
     })
     console.log(this.data)
   },
+  
+  /**
+   * 表单提交
+   * @param {*} e 
+   */
   formSubmit(e) {
     let params = e.detail.value
     params.r_date = new Date(params.r_date).getTime()
@@ -51,16 +60,27 @@ Page({
       }
     })
   },
+
+  /**
+   * 收支类型绑定方法
+   * @param {*} e 
+   */
   bindPickerChange: function (e) {
     this.setData({
       r_type: e.detail.value,
     })
   },
+
+  /**
+   * 交易日期绑定事件
+   * @param {*} e 
+   */
   bindDateChange: function (e) {
     this.setData({
       r_date: e.detail.value
     })
   },
+
   getNow(){
     let now = new Date()
     let m = now.getMonth() + 1
@@ -69,20 +89,11 @@ Page({
     d = d < 10 ? '0' + d : d
     return now.getFullYear() + '-' + m + '-' + d
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
+
+  onShow() {
     this.setData({
       r_date: this.getNow()
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
   },
 
 })

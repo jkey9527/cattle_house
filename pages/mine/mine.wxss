@@ -54,3 +54,7 @@
 .login_out{
   margin-top: 50rpx;
 }
+.label{
+  width: 150rpx;
+  text-align: right;
+}

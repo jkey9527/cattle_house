@@ -14,6 +14,7 @@ const request = (params) => {
   if (wx.getStorageSync("token")) {
     // header.Authorization = wx.getStorageSync("token");
     header.token = wx.getStorageSync("token");
+    header.userid = wx.getStorageSync("userid");
   }
   return new Promise((resolve, reject) => {
     wx.request({

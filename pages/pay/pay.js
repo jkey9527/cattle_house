@@ -15,30 +15,12 @@ Page({
   },
   onShow(){
     wx.showTabBar();
+    this.initCost();
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    var that=this;
-    request({
-      url: '/cattle/house/cost/initCost',
-      method: 'POST',
-      data:{
-        user_id:app.globalData.user.user_id
-      }
-    }).then((res) => {
-      if(res.code===1){
-        that.setData({
-          cost:res.data
-        })
-      }else{
-        wx.showToast({
-          title: res.message,
-          icon:'none'
-        })
-      }
-    })
   },
 
   calculate(){
@@ -122,4 +104,25 @@ Page({
   get_cost_g_e_number(e){
     cost_g_e_number = e.detail.value
   },
+  initCost(){
+    var that=this;
+    request({
+      url: '/cattle/house/cost/initCost',
+      method: 'POST',
+      data:{
+        user_id:app.globalData.user.user_id
+      }
+    }).then((res) => {
+      if(res.code===1){
+        that.setData({
+          cost:res.data
+        })
+      }else{
+        wx.showToast({
+          title: res.message,
+          icon:'none'
+        })
+      }
+    })
+  }
 })
