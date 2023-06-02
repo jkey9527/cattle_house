@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    show_user:false,
     list:{
     },
     user_list:[],
@@ -40,6 +41,7 @@ Page({
    */
   onShow() {
     this.getUserList();
+    this.getSystem();
   },
 
   /**
@@ -188,5 +190,31 @@ Page({
     wx.navigateTo({
       url: '../add_user/add_user',
     })
-  }
+  },
+
+  getSystem(){
+    request({
+      url: '/cattle/house/system/initSystem',
+      method: 'POST',
+      data:{}
+    }).then((res) => {
+      if(res.code===1){
+        let val = res.data
+        let show_user = false;
+        val.forEach(v => {
+          if(v.sys_code == 'show_user'){
+            show_user = v.sys_value == 'true'?true:false
+          }
+        });
+        this.setData({
+          show_user:show_user
+        })
+      }else{
+        wx.showToast({
+          title: res.message,
+          icon:'none'
+        })
+      }
+    })
+  },
 })

@@ -20,13 +20,13 @@
           <input class="weui-input" name="user_name" value="{{list.user_name}}" />
         </view>
       </view>
-      <view class="item">
+      <view class="item" hidden="{{!show_user}}">
         <view class="label">手机号</view>
         <view class="value">
           <input class="weui-input" name="user_phone" value="{{list.user_phone}}" />
         </view>
       </view>
-      <view class="item">
+      <view class="item" hidden="{{!show_user}}">
         <view class="label">身份证号</view>
         <view class="value">
           <input class="weui-input" name="user_id_card" value="{{list.user_id_card}}" />
