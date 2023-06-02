@@ -21,7 +21,8 @@
         "navigationBarBackgroundColor": "#fff",
         "navigationBarTitleText": "LAN房东",
         "navigationBarTextStyle": "black",
-        "enablePullDownRefresh":true
+        "enablePullDownRefresh":true,
+        "onReachBottomDistance": 0
     },
     "style": "v2",
     "sitemapLocation": "sitemap.json",

@@ -45,19 +45,22 @@ Page({
         title: '没有更多啦！',
         icon:'none'
       })
+    }else{
+      this.getCostList(con_no,this.data.nextPage)
     }
-    this.getCostList(con_no,this.data.nextPage)
   },
 
   onPullDownRefresh(){
     let con_no = this.data.list[0].cost_contract_no
-    if(this.data.prePage == 1){
+    if(this.data.pageNum == 1){
       wx.showToast({
         title: '没有更多啦！',
         icon:'none'
       })
+    }else{
+      this.getCostList(con_no,this.data.prePage)
     }
-    this.getCostList(con_no,this.data.prePage)
+    wx.stopPullDownRefresh()
   },
 
   getContractOptions(){
@@ -109,9 +112,7 @@ Page({
         data.forEach(v => {
           v.cost_date = util.formatTime(new Date(v.cost_date))
         });
-        this.setData({
-          list:data
-        })
+        this.setData(res.data)
       }else{
         wx.showToast({
           title: res.message,

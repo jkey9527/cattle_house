@@ -68,3 +68,6 @@
   padding: 8rpx 20rpx;
   border-radius: 8rpx;
 }
+.buttom1{
+  margin: 100rpx auto;
+}

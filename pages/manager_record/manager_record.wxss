@@ -128,3 +128,6 @@
   width: 150rpx;
   text-align: right;
 }
+.buttom1{
+  margin: 100rpx auto;
+}

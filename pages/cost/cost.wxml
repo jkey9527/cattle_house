@@ -99,4 +99,5 @@
     </block>
     <!-- 结束循环 -->
   </view>
+  <view class="buttom1">下拉加载更多...</view>
 </view>

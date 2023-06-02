@@ -58,3 +58,6 @@
 .end{
   margin:30rpx;
 }
+.buttom1{
+  margin: 100rpx auto;
+}

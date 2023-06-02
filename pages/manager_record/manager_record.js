@@ -38,18 +38,21 @@ Page({
         title: '没有更多啦！',
         icon:'none'
       })
+    }else{
+      this.getRecordList(this.data.nextPage,wx.pageScrollTo({scrollTop: 0}))
     }
-    this.getRecordList(this.data.nextPage)
   },
 
   onPullDownRefresh(){
-    if(this.data.prePage == 1){
+    if(this.data.pageNum == 1){
       wx.showToast({
         title: '没有更多啦！',
         icon:'none'
       })
+    }else{
+      this.getRecordList(this.data.prePage)
     }
-    this.getRecordList(this.data.prePage)
+    wx.stopPullDownRefresh()
   },
 
   getTimes(date){
@@ -76,13 +79,11 @@ Page({
       data: param
     }).then((res) => {
       if(res.code===1){
-        let data = res.data.list
-        data.forEach(val => {
+        let list = res.data.list
+        list.forEach(val => {
           val.r_date = this.getTimes(val.r_date)
         });
-        this.setData({
-          list:data
-        })
+        this.setData(res.data)
       }else{
         wx.showToast({
           title: res.message,
